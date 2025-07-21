@@ -32,12 +32,18 @@ const page = ({ params }) => {
 
   const singleData = data.find((d) => d.id == id);
 
+  if(singleData){
   return (
     <div>
       <p>{singleData.name}</p>
       <img src={singleData.image} alt={singleData.name} />
     </div>
   );
+  } else {
+    return <><p>Page not found</p></>
+  }
+
+
 };
 
 export default page;
