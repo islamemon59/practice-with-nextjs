@@ -1,7 +1,7 @@
-import Link from "next/link";
 import React from "react";
 
-const page = () => {
+const page = ({ params }) => {
+  const id = params.id;
   const data = [
     {
       id: "u1",
@@ -30,15 +30,14 @@ const page = () => {
     },
   ];
 
-  return <div className="flex justify-center items-center gap-6">{data.map(d => {
-    return(
-        <div key={d.id} className="border rounded p-4">
-            <p>{d.name}</p>
-            <img src={d.image} alt={d.name} />
-            <Link className="border p-1 rounded mt-5" href={`/services/${d.id}`}>Details</Link>
-        </div>
-    )
-  })}</div>;
+  const singleData = data.find((d) => d.id == id);
+
+  return (
+    <div>
+      <p>{singleData.name}</p>
+      <img src={singleData.image} alt={singleData.name} />
+    </div>
+  );
 };
 
 export default page;
