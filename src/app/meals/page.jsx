@@ -2,6 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import MealSearchInput from "./Components/MealSearchInput";
 
+export const metadata = {
+  title: "Meals",
+};
+
 const Meals = async ({ searchParams }) => {
   const query = await searchParams;
 
@@ -10,7 +14,7 @@ const Meals = async ({ searchParams }) => {
       `https://www.themealdb.com/api/json/v1/1/search.php?s=${query?.search}`
     );
     const data = await res.json();
-    return data.meals;
+    return data?.meals;
   };
 
   const meals = await fetchMealsData();
@@ -19,7 +23,7 @@ const Meals = async ({ searchParams }) => {
     <div>
       <MealSearchInput />
       <div className="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-6">
-        {meals.map((meal) => {
+        {meals?.map((meal) => {
           return (
             <div
               key={meal.idMeal}

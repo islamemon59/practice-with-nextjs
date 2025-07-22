@@ -9,6 +9,11 @@ export const fetchPostsData = async () => {
   return data;
 };
 
+export const metadata = {
+  title: "Posts",
+  description: "Practice Next.js as best as we can",
+};
+
 const Posts = async () => {
   const posts = await fetchPostsData();
 

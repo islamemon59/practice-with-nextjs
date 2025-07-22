@@ -9,6 +9,14 @@ const fetchSingleMeal = async (id) => {
   return data.meals;
 };
 
+export async function generateMetadata({ params }) {
+  const {id} = await params
+  const post = await fetchSingleMeal(id)
+  return {
+    title: post[0].strMeal,
+  }
+}
+
 const SingleMeal = async ({ params }) => {
   const { id } = await params;
   const singleMeal = await fetchSingleMeal(id);
