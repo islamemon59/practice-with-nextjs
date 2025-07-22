@@ -11,6 +11,7 @@ const Navbar = () => {
         <nav className="flex justify-center items-center gap-8">
           <Link href="/">Home</Link>
           <Link href="/services">Services</Link>
+          <Link href="/posts">Posts</Link>
           <Link href="/about">About Us</Link>
           <Link href="/contact">Contact</Link>
         </nav>
